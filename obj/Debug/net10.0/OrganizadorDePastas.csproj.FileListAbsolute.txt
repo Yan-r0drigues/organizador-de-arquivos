@@ -1,0 +1,14 @@
+C:\Users\yan_p\Documents\organizador_de_pasta\OrganizadorDePastas\bin\Debug\net10.0\OrganizadorDePastas.exe
+C:\Users\yan_p\Documents\organizador_de_pasta\OrganizadorDePastas\bin\Debug\net10.0\OrganizadorDePastas.deps.json
+C:\Users\yan_p\Documents\organizador_de_pasta\OrganizadorDePastas\bin\Debug\net10.0\OrganizadorDePastas.runtimeconfig.json
+C:\Users\yan_p\Documents\organizador_de_pasta\OrganizadorDePastas\bin\Debug\net10.0\OrganizadorDePastas.dll
+C:\Users\yan_p\Documents\organizador_de_pasta\OrganizadorDePastas\bin\Debug\net10.0\OrganizadorDePastas.pdb
+C:\Users\yan_p\Documents\organizador_de_pasta\OrganizadorDePastas\obj\Debug\net10.0\OrganizadorDePastas.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yan_p\Documents\organizador_de_pasta\OrganizadorDePastas\obj\Debug\net10.0\OrganizadorDePastas.AssemblyInfoInputs.cache
+C:\Users\yan_p\Documents\organizador_de_pasta\OrganizadorDePastas\obj\Debug\net10.0\OrganizadorDePastas.AssemblyInfo.cs
+C:\Users\yan_p\Documents\organizador_de_pasta\OrganizadorDePastas\obj\Debug\net10.0\OrganizadorDePastas.csproj.CoreCompileInputs.cache
+C:\Users\yan_p\Documents\organizador_de_pasta\OrganizadorDePastas\obj\Debug\net10.0\OrganizadorDePastas.dll
+C:\Users\yan_p\Documents\organizador_de_pasta\OrganizadorDePastas\obj\Debug\net10.0\refint\OrganizadorDePastas.dll
+C:\Users\yan_p\Documents\organizador_de_pasta\OrganizadorDePastas\obj\Debug\net10.0\OrganizadorDePastas.pdb
+C:\Users\yan_p\Documents\organizador_de_pasta\OrganizadorDePastas\obj\Debug\net10.0\OrganizadorDePastas.genruntimeconfig.cache
+C:\Users\yan_p\Documents\organizador_de_pasta\OrganizadorDePastas\obj\Debug\net10.0\ref\OrganizadorDePastas.dll
