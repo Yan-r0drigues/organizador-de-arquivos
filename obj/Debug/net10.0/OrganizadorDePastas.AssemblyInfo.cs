@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OrganizadorDePastas")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f61e000d3faa7972d1f17a57db56aed8eb47a691")]
 [assembly: System.Reflection.AssemblyProductAttribute("OrganizadorDePastas")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OrganizadorDePastas")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

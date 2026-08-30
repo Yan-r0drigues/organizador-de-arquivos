@@ -2,24 +2,6 @@
 
 public class Menu
 {
-    public static int ValidarCampo(int valor)
-    {
-        while (!int.TryParse(Console.ReadLine(), out valor) || valor < 0)
-        {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.Write("\nEntrada inválida! Por favor, digite um número inteiro maior ou igual a zero:");
-            Console.ResetColor();
-        }
-
-        return valor;
-    }
-
-    public static int PreencherCampo(int valor)
-    {
-        valor = ValidarCampo(valor);
-        return valor;
-    }
-
     public static void PularLinha()
     {
         Console.WriteLine();
@@ -33,5 +15,20 @@ public class Menu
     public static void ResetarCorTexto()
     {
         Console.ResetColor();
+    }
+
+    public static void LimparTextoDaTela()
+    {
+        Console.Clear();
+    }
+
+    public static void ExibirMenu()
+    {
+        Console.WriteLine("=== ORGANIZADOR DE ARQUIVOS ===");
+        Console.WriteLine("[1] - Criar arquivos");
+        Console.WriteLine("[2] - Listar arquivos");
+        Console.WriteLine("[3] - Deletar arquivos");
+        Console.WriteLine("[0] - Sair");
+        Console.Write("Selecione uma opção: ");
     }
 }
