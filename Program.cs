@@ -20,7 +20,24 @@ public class Program
             }
             else if (opcaoMenu == 2)
             {
-                Console.WriteLine("Listando arquivos...");
+                Menu.LimparTextoDaTela();
+
+                Console.Write("\nDigite o caminho da pasta: ");
+                arquivo.Caminho = Console.ReadLine();
+
+                var arquivos = Directory.GetFiles(arquivo.Caminho);
+                var quantidadeDeArquivos = Arquivo.ContarArquivosNaPasta(arquivo.Caminho);
+
+                Menu.AlterarCorTexto(ConsoleColor.Yellow);
+                Console.WriteLine("\nListando todos os arquivos do diretório...\n");
+                foreach (var item in arquivos)
+                {
+                    FileInfo infoArquivo = new FileInfo(item);
+                    Console.WriteLine($"Nome do arquivo: {infoArquivo.Name}");
+                }
+                Console.WriteLine($"\nTotal de arquivos na pasta: {quantidadeDeArquivos}");
+                Menu.ResetarCorTexto();
+                Menu.PularLinha();
             }
             else if (opcaoMenu == 3)
             {
@@ -81,6 +98,7 @@ public class Program
             }
             else if (opcaoMenu == 0)
             {
+                Menu.LimparTextoDaTela();
                 Menu.AlterarCorTexto(ConsoleColor.Yellow);
                 Menu.PularLinha();
                 Console.WriteLine("Saindo do programa...");
