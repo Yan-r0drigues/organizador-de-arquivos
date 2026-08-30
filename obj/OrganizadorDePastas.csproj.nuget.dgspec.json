@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\yan_p\\Documents\\organizador_de_pasta\\OrganizadorDePastas\\OrganizadorDePastas.csproj": {}
+    "C:\\Users\\yan_p\\Documents\\organizador-de-pastas\\organizador-de-arquivos\\OrganizadorDePastas.csproj": {}
   },
   "projects": {
-    "C:\\Users\\yan_p\\Documents\\organizador_de_pasta\\OrganizadorDePastas\\OrganizadorDePastas.csproj": {
+    "C:\\Users\\yan_p\\Documents\\organizador-de-pastas\\organizador-de-arquivos\\OrganizadorDePastas.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\yan_p\\Documents\\organizador_de_pasta\\OrganizadorDePastas\\OrganizadorDePastas.csproj",
+        "projectUniqueName": "C:\\Users\\yan_p\\Documents\\organizador-de-pastas\\organizador-de-arquivos\\OrganizadorDePastas.csproj",
         "projectName": "OrganizadorDePastas",
-        "projectPath": "C:\\Users\\yan_p\\Documents\\organizador_de_pasta\\OrganizadorDePastas\\OrganizadorDePastas.csproj",
+        "projectPath": "C:\\Users\\yan_p\\Documents\\organizador-de-pastas\\organizador-de-arquivos\\OrganizadorDePastas.csproj",
         "packagesPath": "C:\\Users\\yan_p\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\yan_p\\Documents\\organizador_de_pasta\\OrganizadorDePastas\\obj\\",
+        "outputPath": "C:\\Users\\yan_p\\Documents\\organizador-de-pastas\\organizador-de-arquivos\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
