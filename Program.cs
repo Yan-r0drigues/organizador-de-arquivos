@@ -1,118 +1,126 @@
-﻿namespace OrganizadorDePastas;
+﻿using OrganizadorDePastas.Models;
+using OrganizadorDePastas.Services;
+using OrganizadorDePastas.UI;
+
+namespace OrganizadorDePastas;
 
 public class Program
 {
     static void Main(string[] args)
     {
-        int opcaoMenu;
-
-        var arquivo = new Arquivo();
-
-        do
+        while (true)
         {
-            Menu.ExibirMenu();
+            ConsoleUI.ExibirMenu();
 
-            opcaoMenu = int.Parse(Console.ReadLine());
+            if (!int.TryParse(Console.ReadLine(), out int opcaoMenu))
+            {
+                Console.WriteLine("Digite uma opção válida.");
+                continue;
+            }
 
             if (opcaoMenu == 1)
             {
-                Console.WriteLine("Criando arquivos...");
+                ConsoleUI.LimparTextoDaTela();
+
+                Console.Write("\nDigite o caminho da pasta: ");
+                string caminho = Console.ReadLine();
+
+                var arquivos = ArquivoService.ListarArquivos(caminho);
+                var quantidadeDeArquivos = ArquivoService.ContarArquivosNaPasta(caminho);
+
+                ConsoleUI.AlterarCorTexto(ConsoleColor.Yellow);
+                Console.WriteLine("\nListando todos os arquivos do diretório...\n");
+
+                foreach (var arquivo in arquivos)
+                {
+                    Console.WriteLine($"Nome do arquivo: {arquivo.Nome} - Data da última modificação: {arquivo.DataUltimaModificacao}");
+                }
+
+                Console.WriteLine($"\nTotal de arquivos na pasta: {quantidadeDeArquivos}");
+                ConsoleUI.ResetarCorTexto();
+                ConsoleUI.PularLinha();
             }
             else if (opcaoMenu == 2)
             {
-                Menu.LimparTextoDaTela();
-
                 Console.Write("\nDigite o caminho da pasta: ");
-                arquivo.Caminho = Console.ReadLine();
+                string caminho = Console.ReadLine();
 
-                var arquivos = Directory.GetFiles(arquivo.Caminho);
-                var quantidadeDeArquivos = Arquivo.ContarArquivosNaPasta(arquivo.Caminho);
-
-                Menu.AlterarCorTexto(ConsoleColor.Yellow);
-                Console.WriteLine("\nListando todos os arquivos do diretório...\n");
-                foreach (var item in arquivos)
-                {
-                    FileInfo infoArquivo = new FileInfo(item);
-                    Console.WriteLine($"Nome do arquivo: {infoArquivo.Name}");
-                }
-                Console.WriteLine($"\nTotal de arquivos na pasta: {quantidadeDeArquivos}");
-                Menu.ResetarCorTexto();
-                Menu.PularLinha();
+                ArquivoService.OrganizarPasta(caminho);
             }
             else if (opcaoMenu == 3)
             {
                 Console.Write("\nDigite o caminho da pasta: ");
-                arquivo.Caminho = Console.ReadLine();
+                string caminho = Console.ReadLine();
 
-                if (Arquivo.ExisteCaminho(arquivo)) 
+                if (Directory.Exists(caminho)) 
                 {
                     Console.Write("Digite a quantidade de dias limite desde a última modificação: ");
                     int diasLimite = int.Parse(Console.ReadLine());
 
-                    var quantidadeDeArquivos = Arquivo.ContarArquivosNaPasta(arquivo.Caminho);
+                    var quantidadeDeArquivos = ArquivoService.ContarArquivosNaPasta(caminho);
 
-                    Menu.AlterarCorTexto(ConsoleColor.Yellow);
-                    Console.WriteLine($"\nCaminho informado: {arquivo.Caminho} - Quantidade de arquivos: {quantidadeDeArquivos}");
+                    ConsoleUI.AlterarCorTexto(ConsoleColor.Yellow);
+                    Console.WriteLine($"\nCaminho informado: {caminho} - Quantidade de arquivos: {quantidadeDeArquivos}");
                     Console.Write("Tem certeza que deseja deletar os arquivos? (S/N): ");
-                    string opcao = Console.ReadLine().ToLower();
+                    string escolha = Console.ReadLine().ToLower();
 
-                    while (opcao != "s" && opcao != "n")
+                    while (escolha != "s" && escolha != "n")
                     {
-                        Menu.AlterarCorTexto(ConsoleColor.Red);
+                        ConsoleUI.AlterarCorTexto(ConsoleColor.Red);
                         Console.WriteLine("Erro! Digite um valor válido.");
-                        Menu.ResetarCorTexto();
+                        ConsoleUI.ResetarCorTexto();
 
-                        Menu.PularLinha();
+                        ConsoleUI.PularLinha();
 
-                        Menu.AlterarCorTexto(ConsoleColor.Yellow);
+                        ConsoleUI.AlterarCorTexto(ConsoleColor.Yellow);
                         Console.Write("Tem certeza que deseja deletar os arquivos? (S/N): ");
-                        opcao = Console.ReadLine().ToLower();
+                        escolha = Console.ReadLine().ToLower();
                     }
 
-                    Menu.ResetarCorTexto();
+                    ConsoleUI.ResetarCorTexto();
 
-                    if (opcao == "s")
+                    if (escolha == "s")
                     {
-                        var arquivosDeletados = Arquivo.DeletarArquivos(arquivo);
+                        var arquivosDeletados = ArquivoService.DeletarArquivos(caminho, diasLimite);
 
-                        Menu.AlterarCorTexto(ConsoleColor.Green);
+                        ConsoleUI.AlterarCorTexto(ConsoleColor.Green);
                         Console.WriteLine($"\nLimpeza concluída com sucesso! Total de arquivos deletados: {arquivosDeletados}");
-                        Menu.ResetarCorTexto();
+                        ConsoleUI.ResetarCorTexto();
                     }
-                    else if (opcao == "n")
+                    else if (escolha == "n")
                     {
-                        Menu.LimparTextoDaTela();
-                        Menu.AlterarCorTexto(ConsoleColor.Yellow);
+                        ConsoleUI.LimparTextoDaTela();
+                        ConsoleUI.AlterarCorTexto(ConsoleColor.Yellow);
                         Console.WriteLine("\nSaindo do programa...");
-                        Menu.ResetarCorTexto();
+                        ConsoleUI.ResetarCorTexto();
                         return;
                     }
                 }
                 else
                 {
-                    Menu.AlterarCorTexto(ConsoleColor.Red);
+                    ConsoleUI.AlterarCorTexto(ConsoleColor.Red);
                     Console.WriteLine("\nO caminho não existe.");
-                    Menu.PularLinha();
-                    Menu.ResetarCorTexto();
+                    ConsoleUI.PularLinha();
+                    ConsoleUI.ResetarCorTexto();
                 }
             }
             else if (opcaoMenu == 0)
             {
-                Menu.LimparTextoDaTela();
-                Menu.AlterarCorTexto(ConsoleColor.Yellow);
-                Menu.PularLinha();
+                ConsoleUI.LimparTextoDaTela();
+                ConsoleUI.AlterarCorTexto(ConsoleColor.Yellow);
+                ConsoleUI.PularLinha();
                 Console.WriteLine("Saindo do programa...");
-                Menu.ResetarCorTexto();
-                return;
+                ConsoleUI.ResetarCorTexto();
+                break;
             }
             else
             {
-                Menu.LimparTextoDaTela();
-                Menu.AlterarCorTexto(ConsoleColor.Red);
+                ConsoleUI.LimparTextoDaTela();
+                ConsoleUI.AlterarCorTexto(ConsoleColor.Red);
                 Console.WriteLine("\nOpção inválida! Digite uma opção válida.");
-                Menu.ResetarCorTexto();
-                Menu.PularLinha();
+                ConsoleUI.ResetarCorTexto();
+                ConsoleUI.PularLinha();
             }
-        } while (opcaoMenu >= 0 || opcaoMenu <= 3);
+        }
     }
 }
