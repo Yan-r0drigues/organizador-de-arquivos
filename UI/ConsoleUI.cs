@@ -1,6 +1,6 @@
-﻿namespace OrganizadorDePastas;
+﻿namespace OrganizadorDePastas.UI;
 
-public class Menu
+public class ConsoleUI
 {
     public static void PularLinha()
     {
@@ -25,9 +25,9 @@ public class Menu
     public static void ExibirMenu()
     {
         Console.WriteLine("=== ORGANIZADOR DE ARQUIVOS ===");
-        Console.WriteLine("[1] - Criar arquivos");
-        Console.WriteLine("[2] - Listar arquivos");
-        Console.WriteLine("[3] - Deletar arquivos");
+        Console.WriteLine("[1] - Listar arquivos");
+        Console.WriteLine("[2] - Organizar arquivos");
+        Console.WriteLine("[3] - Limpar arquivos antigos");
         Console.WriteLine("[0] - Sair");
         Console.Write("Selecione uma opção: ");
     }
